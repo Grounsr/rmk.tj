@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="tj">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Креативный агентский (неон) — Рушди Манотиқи Кӯҳистон</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{--head:'Sora',sans-serif;--body:'Manrope',sans-serif;--bg:#08070f;--ink:#ECE9F5;--violet:#8B5CF6;--cyan:#22D3EE;--pink:#F472B6;--card:#100E1C}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(900px 600px at 85% -5%,rgba(139,92,246,.22),transparent 60%),radial-gradient(700px 500px at 5% 30%,rgba(34,211,238,.14),transparent 55%),radial-gradient(600px 500px at 50% 110%,rgba(244,114,182,.12),transparent 60%)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1280px;margin:0 auto;padding:0 30px}
+.section{padding:clamp(70px,9vw,130px) 0}
+h1,h2,h3{font-family:var(--head);line-height:1.04;font-weight:700;letter-spacing:-.01em}
+.grad{background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.back-gallery{position:fixed;left:14px;bottom:14px;z-index:300;font-size:.8rem;font-weight:700;padding:10px 16px;border-radius:999px;background:linear-gradient(100deg,var(--violet),var(--cyan));color:#fff;box-shadow:0 8px 30px rgba(139,92,246,.5);transition:transform .2s}
+.back-gallery:hover{transform:translateY(-2px)}
+header{position:fixed;top:0;left:0;right:0;z-index:120;transition:.3s}
+header.scrolled{background:rgba(8,7,15,.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)}
+.hdr{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo img{height:42px}
+.nav{display:flex;gap:30px;align-items:center}
+.nav a{font-size:.9rem;font-weight:600;opacity:.8;position:relative}
+.nav a:hover{opacity:1;color:var(--cyan)}
+.lang{display:flex;gap:6px;align-items:center;font-weight:700;font-size:.82rem}
+.lang button{background:none;border:none;color:#fff;opacity:.45;font-weight:800;cursor:pointer;font-family:var(--body)}
+.lang button.is-active{opacity:1;color:var(--cyan)}
+.lang-sep{opacity:.4}
+.hdr-right{display:flex;gap:18px;align-items:center}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:#fff;transition:.3s}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;padding:14px 30px;border-radius:999px;cursor:pointer;border:none;font-size:.95rem;transition:transform .2s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-p{background:linear-gradient(100deg,var(--violet),var(--cyan));color:#fff;box-shadow:0 10px 30px rgba(139,92,246,.4)}
+.btn-p:hover{box-shadow:0 16px 40px rgba(34,211,238,.5)}
+.btn-g{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.btn-g:hover{border-color:var(--cyan)}
+/* hero */
+.hero{padding-top:150px;padding-bottom:60px;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--cyan);margin-bottom:24px;padding:8px 16px;border:1px solid rgba(34,211,238,.3);border-radius:999px;background:rgba(34,211,238,.06)}
+.hero h1{font-size:clamp(2.6rem,8vw,6.4rem);max-width:14ch}
+.hero-sub{font-size:clamp(1.02rem,1.7vw,1.28rem);max-width:580px;opacity:.78;margin:26px 0 36px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+/* hero asymmetric photo grid */
+.hero-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:200px 200px;gap:18px;margin-top:70px}
+.hg{border-radius:20px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.08)}
+.hg img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.hg:hover img{transform:scale(1.08)}
+.hg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,7,15,.45),transparent 60%)}
+.hg-cap{position:absolute;left:18px;bottom:16px;z-index:2;font-family:var(--head);font-weight:600;font-size:.95rem}
+.hg1{grid-row:span 2}
+.hg-stat{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:linear-gradient(135deg,rgba(139,92,246,.22),rgba(34,211,238,.1));padding:24px;gap:4px}
+.hg-stat b{font-family:var(--head);font-size:2.4rem;background:linear-gradient(100deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.hg-stat span{font-size:.85rem;opacity:.75}
+/* sec head */
+.sec-head{margin-bottom:clamp(40px,5vw,60px);max-width:760px}
+.tag{display:inline-block;font-family:var(--head);font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--pink);margin-bottom:16px}
+.sec-head h2{font-size:clamp(2.1rem,5vw,3.6rem)}
+/* about */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(40px,5vw,70px);align-items:center}
+.about-photo{border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.1);position:relative}
+.about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.about-photo::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px rgba(139,92,246,.3)}
+.lead{font-size:1.1rem;opacity:.82;margin-bottom:26px}
+.vals{display:grid;gap:14px}
+.val{display:flex;gap:14px;align-items:flex-start;padding:18px 20px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,.08);transition:border-color .3s,transform .3s}
+.val:hover{border-color:rgba(34,211,238,.4);transform:translateX(6px)}
+.val svg{width:26px;height:26px;color:var(--cyan);flex-shrink:0}
+.val h3{font-size:1.05rem;margin-bottom:2px}
+.val p{font-size:.9rem;opacity:.72}
+/* services - bento varied */
+.svc-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.svc{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:30px 28px;position:relative;overflow:hidden;transition:transform .35s,border-color .35s;grid-column:span 2}
+.svc::before{content:"";position:absolute;width:140px;height:140px;border-radius:50%;right:-50px;top:-50px;background:radial-gradient(circle,rgba(139,92,246,.35),transparent 70%);opacity:0;transition:opacity .4s}
+.svc:hover{transform:translateY(-8px);border-color:rgba(139,92,246,.45)}
+.svc:hover::before{opacity:1}
+.svc:nth-child(1){grid-column:span 3}
+.svc:nth-child(4){grid-column:span 3}
+.svc svg{width:40px;height:40px;color:var(--cyan);margin-bottom:18px;position:relative;z-index:2}
+.svc h3{font-size:1.3rem;margin-bottom:8px;position:relative;z-index:2}
+.svc p{font-size:.94rem;opacity:.72;position:relative;z-index:2}
+.svc-num{position:absolute;top:24px;right:28px;font-family:var(--head);font-weight:700;opacity:.18;z-index:2}
+/* projects asymmetric */
+.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:18px}
+.proj{border-radius:22px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,.08)}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.proj:hover img{transform:scale(1.08)}
+.proj::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,7,15,.92),transparent 55%)}
+.proj-body{position:absolute;left:0;bottom:0;z-index:2;padding:26px}
+.proj-cat{font-family:var(--head);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--cyan)}
+.proj-body h3{font-size:1.4rem;margin-top:6px}
+.proj.a{grid-column:span 2;grid-row:span 2}
+.proj.b{grid-column:span 2}
+.proj.c{grid-column:span 2}
+.proj.d{grid-column:span 2}
+/* contact */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,5vw,60px);align-items:start}
+.ci-card{background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:30px}
+.ci-row{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.ci-row:last-child{border:none}
+.ci-row .k{font-family:var(--head);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;opacity:.55;margin-bottom:4px}
+.ci-row .v{font-size:1.1rem;font-weight:600}
+.cf{display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:32px}
+.cf input,.cf textarea{padding:15px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.03);color:#fff;font-family:var(--body);font-size:1rem;width:100%}
+.cf input::placeholder,.cf textarea::placeholder{color:rgba(255,255,255,.45)}
+.cf input:focus,.cf textarea:focus{outline:none;border-color:var(--cyan)}
+.cf .btn{align-self:flex-start}
+.form-msg{opacity:0;transform:translateY(6px);transition:.4s;font-weight:700;color:var(--cyan)}
+.form-msg.show{opacity:1;transform:none}
+.footer{padding:44px 0;border-top:1px solid rgba(255,255,255,.08)}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-inner img{height:42px}
+.footer p{font-size:.88rem;opacity:.6}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.revealed{opacity:1;transform:none}
+@media(max-width:980px){
+  .nav{position:fixed;inset:0 0 0 auto;width:80%;max-width:330px;flex-direction:column;align-items:flex-start;background:#0c0b16;padding:100px 34px;gap:10px;transform:translateX(110%);transition:.35s;z-index:110;border-left:1px solid rgba(255,255,255,.1)}
+  body.nav-open .nav{transform:none}
+  .burger{display:flex;position:relative;z-index:130}
+  body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .burger span:nth-child(2){opacity:0}
+  body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}.svc,.svc:nth-child(1),.svc:nth-child(4){grid-column:span 1}
+  .hero-grid{grid-template-columns:1fr 1fr;grid-template-rows:170px 170px 170px}.hg1{grid-row:span 2}
+  .proj-grid{grid-template-columns:1fr 1fr;grid-auto-rows:220px}.proj.a,.proj.b,.proj.c,.proj.d{grid-column:span 1;grid-row:span 1}
+}
+@media(max-width:560px){
+  .wrap{padding:0 18px}.svc-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr;grid-template-rows:repeat(4,160px)}.hg1{grid-row:span 1}
+  .proj-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back-gallery" data-tj="← Ба галерея" data-en="← Back to gallery">← Ба галерея</a>
+
+<header data-header>
+  <div class="wrap hdr">
+    <a href="#home" class="logo"><img src="../assets/img/logo_gold.png" alt="РМК"></a>
+    <nav class="nav">
+      <a href="#about" data-tj="Дар бораи мо" data-en="About">Дар бораи мо</a>
+      <a href="#services" data-tj="Хидматҳо" data-en="Services">Хидматҳо</a>
+      <a href="#projects" data-tj="Лоиҳаҳо" data-en="Projects">Лоиҳаҳо</a>
+      <a href="#contact" data-tj="Тамос" data-en="Contact">Тамос</a>
+      <div class="lang"><button data-lang-btn="tj" class="is-active">TJ</button><span class="lang-sep">/</span><button data-lang-btn="en">EN</button></div>
+    </nav>
+    <div class="hdr-right">
+      <a href="#contact" class="btn btn-p" style="padding:11px 24px;font-size:.88rem" data-tj="Тамос" data-en="Contact">Тамос</a>
+      <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section id="home" class="hero section">
+  <div class="wrap">
+    <span class="hero-eyebrow reveal" data-tj="Креативии рушди кӯҳистон" data-en="Creative highland development">Креативии рушди кӯҳистон</span>
+    <h1 class="reveal"><span data-tj="Мо ояндаи " data-en="We design the future ">Мо ояндаи </span><span class="grad" data-tj="кӯҳистонро тарроҳӣ мекунем" data-en="of the highlands">кӯҳистонро тарроҳӣ мекунем</span></h1>
+    <p class="hero-sub reveal" data-tj="Мо инфрасохтор, иқтисодиёт ва ҳаёти манотиқи кӯҳиро бо технологияҳои муосир ва эҳтиром ба табиат тағйир медиҳем." data-en="We transform infrastructure, economy and life in highland regions with modern technology and respect for nature.">Мо инфрасохтор, иқтисодиёт ва ҳаёти манотиқи кӯҳиро бо технологияҳои муосир ва эҳтиром ба табиат тағйир медиҳем.</p>
+    <div class="hero-cta reveal">
+      <a href="#contact" class="btn btn-p" data-tj="Бо мо тамос гиред" data-en="Get in touch">Бо мо тамос гиред</a>
+      <a href="#projects" class="btn btn-g" data-tj="Лоиҳаҳои мо" data-en="Our projects">Лоиҳаҳои мо</a>
+    </div>
+    <div class="hero-grid reveal">
+      <div class="hg hg1"><img src="../assets/img/photo_neon.png" alt=""><span class="hg-cap" data-tj="Кӯҳҳои шабона" data-en="Night mountains">Кӯҳҳои шабона</span></div>
+      <div class="hg"><img src="../assets/img/photo_energy.png" alt=""><span class="hg-cap" data-tj="Энергетика" data-en="Energy">Энергетика</span></div>
+      <div class="hg hg-stat"><b>50+</b><span data-tj="лоиҳа дар 20+ минтақа" data-en="projects in 20+ regions">лоиҳа дар 20+ минтақа</span></div>
+      <div class="hg"><img src="../assets/img/photo_tourism.png" alt=""><span class="hg-cap" data-tj="Туризм" data-en="Tourism">Туризм</span></div>
+      <div class="hg"><img src="../assets/img/photo_road.png" alt=""><span class="hg-cap" data-tj="Роҳҳо" data-en="Roads">Роҳҳо</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about section">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="tag reveal" data-tj="Дар бораи мо" data-en="About us">Дар бораи мо</span>
+        <h2 class="reveal" style="font-size:clamp(1.9rem,4vw,2.9rem);margin-bottom:18px" data-tj="Ояндаи кӯҳистон — имрӯз сохта мешавад" data-en="Building the future of the highlands, today">Ояндаи кӯҳистон — имрӯз сохта мешавад</h2>
+        <p class="lead reveal" data-tj="«Рушди Манотиқи Кӯҳистон» — созмонест, ки ба рушди ҳамаҷонибаи минтақаҳои кӯҳии Тоҷикистон нигаронида шудааст. Мо лоиҳаҳои инфрасохторӣ, иқтисодӣ ва иҷтимоиро таҳия ва амалӣ менамоем." data-en="Mountain Regions Development (RMK) is dedicated to the comprehensive development of Tajikistan's highland areas. We design and implement infrastructure, economic and social projects.">«Рушди Манотиқи Кӯҳистон» — созмонест, ки ба рушди ҳамаҷонибаи минтақаҳои кӯҳии Тоҷикистон нигаронида шудааст. Мо лоиҳаҳои инфрасохторӣ, иқтисодӣ ва иҷтимоиро таҳия ва амалӣ менамоем.</p>
+        <div class="vals">
+          <div class="val reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg><div><h3 data-tj="Устуворӣ" data-en="Sustainability">Устуворӣ</h3><p data-tj="Рушд бо эҳтиром ба муҳити зист" data-en="Development with respect for the environment">Рушд бо эҳтиром ба муҳити зист</p></div></div>
+          <div class="val reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 14.06 5 19m0-14 5 5m4-5-4.94 4.94M19 19l-4.94-4.94M12 2v3m0 14v3M2 12h3m14 0h3"/></svg><div><h3 data-tj="Навоварӣ" data-en="Innovation">Навоварӣ</h3><p data-tj="Технологияҳои муосир дар кӯҳистон" data-en="Modern technology in the highlands">Технологияҳои муосир дар кӯҳистон</p></div></div>
+          <div class="val reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><h3 data-tj="Ҷамъият" data-en="Community">Ҷамъият</h3><p data-tj="Беҳбудии аҳолии маҳаллӣ" data-en="Wellbeing of local people">Беҳбудии аҳолии маҳаллӣ</p></div></div>
+        </div>
+      </div>
+      <div class="about-photo reveal"><img src="../assets/img/photo_people.png" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag reveal" data-tj="Хидматҳо" data-en="Services">Хидматҳо</span>
+      <h2 class="reveal" data-tj="Самтҳои асосии фаъолият" data-en="Our key areas of work">Самтҳои асосии фаъолият</h2>
+    </div>
+    <div class="svc-grid">
+      <article class="svc reveal"><span class="svc-num">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 8 5m12 14L16 5M12 5v2m0 4v2m0 4v2"/></svg><h3 data-tj="Рушди инфрасохтор" data-en="Infrastructure development">Рушди инфрасохтор</h3><p data-tj="Роҳҳо, пулҳо ва шабакаҳои муосир барои дастрасии беҳтар." data-en="Modern roads, bridges and networks for better access.">Роҳҳо, пулҳо ва шабакаҳои муосир барои дастрасии беҳтар.</p></article>
+      <article class="svc reveal"><span class="svc-num">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg><h3 data-tj="Энергетикаи сабз" data-en="Green energy">Энергетикаи сабз</h3><p data-tj="Гидро ва офтобӣ" data-en="Hydro and solar power">Гидро ва офтобӣ</p></article>
+      <article class="svc reveal"><span class="svc-num">03</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg><h3 data-tj="Туризми кӯҳӣ" data-en="Mountain tourism">Туризми кӯҳӣ</h3><p data-tj="Экотуризм ва меҳмонхонаҳо" data-en="Ecotourism and resorts">Экотуризм ва меҳмонхонаҳо</p></article>
+      <article class="svc reveal"><span class="svc-num">04</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M12 20V8m0 0a5 5 0 0 0-5-5H5v2a5 5 0 0 0 5 5h2Zm0 4a5 5 0 0 1 5-5h2v1a5 5 0 0 1-5 5h-2Z"/></svg><h3 data-tj="Кишоварзӣ" data-en="Agriculture">Кишоварзӣ</h3><p data-tj="Боғдорӣ ва чорводории муосир дар шароити кӯҳистон." data-en="Modern horticulture and livestock for highland conditions.">Боғдорӣ ва чорводории муосир дар шароити кӯҳистон.</p></article>
+      <article class="svc reveal"><span class="svc-num">05</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg><h3 data-tj="Иҷтимоиёт" data-en="Social projects">Иҷтимоиёт</h3><p data-tj="Мактабҳо, беморхонаҳо" data-en="Schools, clinics">Мактабҳо, беморхонаҳо</p></article>
+      <article class="svc reveal"><span class="svc-num">06</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg><h3 data-tj="Ҳифзи табиат" data-en="Nature protection">Ҳифзи табиат</h3><p data-tj="Экология ва обу ҳаво" data-en="Ecology and climate">Экология ва обу ҳаво</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="projects section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag reveal" data-tj="Лоиҳаҳо" data-en="Projects">Лоиҳаҳо</span>
+      <h2 class="reveal" data-tj="Лоиҳаҳои интихобшуда" data-en="Selected projects">Лоиҳаҳои интихобшуда</h2>
+    </div>
+    <div class="proj-grid">
+      <article class="proj a reveal"><img src="../assets/img/photo_road.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Инфрасохтор" data-en="Infrastructure">Инфрасохтор</span> · 2024</span><h3 data-tj="Роҳи кӯҳии Помир" data-en="Pamir mountain road">Роҳи кӯҳии Помир</h3></div></article>
+      <article class="proj b reveal"><img src="../assets/img/photo_energy.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Энергетика" data-en="Energy">Энергетика</span> · 2023</span><h3 data-tj="Стансияи обии Рашт" data-en="Rasht hydro station">Стансияи обии Рашт</h3></div></article>
+      <article class="proj c reveal"><img src="../assets/img/photo_tourism.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Туризм" data-en="Tourism">Туризм</span> · 2025</span><h3 data-tj="Маркази экотуризм" data-en="Ecotourism center">Маркази экотуризм</h3></div></article>
+      <article class="proj d reveal"><img src="../assets/img/photo_agro.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Иҷтимоӣ" data-en="Social">Иҷтимоӣ</span> · 2024</span><h3 data-tj="Мактаби кӯҳистон" data-en="Highland school">Мактаби кӯҳистон</h3></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag reveal" data-tj="Тамос" data-en="Contact">Тамос</span>
+      <h2 class="reveal"><span data-tj="Биёед " data-en="Let's ">Биёед </span><span class="grad" data-tj="якҷоя кор кунем" data-en="work together">якҷоя кор кунем</span></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="ci-card reveal">
+        <div class="ci-row"><div class="k">Email</div><div class="v"><a href="mailto:info@rmk.tj">info@rmk.tj</a></div></div>
+        <div class="ci-row"><div class="k" data-tj="Телефон" data-en="Phone">Телефон</div><div class="v"><a href="tel:+99237000000">+992 (37) 000-00-00</a></div></div>
+        <div class="ci-row"><div class="k" data-tj="Суроға" data-en="Address">Суроға</div><div class="v" data-tj="ш. Душанбе, Ҷумҳурии Тоҷикистон" data-en="Dushanbe, Republic of Tajikistan">ш. Душанбе, Ҷумҳурии Тоҷикистон</div></div>
+      </div>
+      <form class="cf reveal" data-form>
+        <input type="text" required data-ph-tj="Ном" data-ph-en="Name" placeholder="Ном">
+        <input type="email" required data-ph-tj="Email" data-ph-en="Email" placeholder="Email">
+        <textarea rows="4" required data-ph-tj="Паём" data-ph-en="Message" placeholder="Паём"></textarea>
+        <button type="submit" class="btn btn-p" data-tj="Фиристодан" data-en="Send">Фиристодан</button>
+        <p class="form-msg" data-form-msg></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <img src="../assets/img/logo_gold.png" alt="РМК">
+    <p data-tj="© 2026 Рушди Манотиқи Кӯҳистон" data-en="© 2026 Mountain Regions Development">© 2026 Рушди Манотиқи Кӯҳистон</p>
+  </div>
+</footer>
+
+<script src="../assets/content.js"></script>
+<script src="../assets/app.js"></script>
+<script>RMK_init();</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>

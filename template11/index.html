@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="tj">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Полноэкранный параллакс — Рушди Манотиқи Кӯҳистон</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--head:'Unbounded',sans-serif;--body:'Manrope',sans-serif;--gold:#E6C566;--ink:#fff}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:#05080d;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+/* scroll-snap container */
+.snap{height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;scroll-behavior:smooth}
+.snap::-webkit-scrollbar{width:0}
+.panel{scroll-snap-align:start;min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 32px;position:relative;z-index:5}
+h1,h2,h3{font-family:var(--head);line-height:1.08;font-weight:700}
+.back-gallery{position:fixed;left:14px;bottom:14px;z-index:300;font-size:.8rem;font-weight:700;padding:10px 16px;border-radius:999px;background:var(--gold);color:#10151c;box-shadow:0 8px 26px rgba(0,0,0,.4);transition:transform .2s}
+.back-gallery:hover{transform:translateY(-2px)}
+/* fixed parallax bg per panel */
+.pbg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;background-attachment:fixed}
+.pov{position:absolute;inset:0;z-index:1}
+/* header */
+header{position:fixed;top:0;left:0;right:0;z-index:120;transition:.3s}
+header.scrolled{background:rgba(5,8,13,.7);backdrop-filter:blur(12px)}
+.hdr{display:flex;align-items:center;justify-content:space-between;height:76px;max-width:1200px;margin:0 auto;padding:0 32px}
+.logo img{height:42px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{font-size:.86rem;font-weight:600;opacity:.85;letter-spacing:.02em}
+.nav a:hover{color:var(--gold);opacity:1}
+.lang{display:flex;gap:6px;align-items:center;font-weight:700;font-size:.82rem}
+.lang button{background:none;border:none;color:#fff;opacity:.45;font-weight:800;cursor:pointer;font-family:var(--body)}
+.lang button.is-active{opacity:1;color:var(--gold)}
+.lang-sep{opacity:.4}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:#fff;transition:.3s}
+/* dot nav */
+.dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:115;display:flex;flex-direction:column;gap:14px}
+.dots a{width:11px;height:11px;border-radius:50%;border:2px solid rgba(255,255,255,.5);transition:.3s}
+.dots a.active{background:var(--gold);border-color:var(--gold);transform:scale(1.3)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:600;padding:15px 32px;border-radius:999px;cursor:pointer;border:none;font-size:.92rem;transition:transform .2s,background .25s}
+.btn:hover{transform:translateY(-3px)}
+.btn-p{background:var(--gold);color:#10151c}
+.btn-p:hover{background:#f0d27c}
+.btn-g{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-g:hover{background:rgba(255,255,255,.2)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--gold);margin-bottom:22px}
+.eyebrow::before{content:"";width:42px;height:2px;background:var(--gold)}
+/* hero */
+.hero h1{font-size:clamp(2.4rem,7vw,5.6rem);max-width:16ch}
+.hero-sub{font-size:clamp(1.05rem,1.8vw,1.4rem);max-width:600px;opacity:.9;margin:26px 0 36px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.scrollhint{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:6;font-family:var(--head);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollhint .m{width:22px;height:34px;border:2px solid rgba(255,255,255,.6);border-radius:12px;position:relative}
+.scrollhint .m::after{content:"";position:absolute;left:50%;top:7px;transform:translateX(-50%);width:3px;height:7px;border-radius:2px;background:#fff;animation:mw 1.6s infinite}
+@keyframes mw{0%{opacity:0;top:7px}40%{opacity:1}80%{opacity:0;top:18px}100%{opacity:0}}
+/* content panel */
+.panel-content{max-width:680px}
+.tag{display:inline-block;font-family:var(--head);font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--gold);margin-bottom:16px}
+.panel h2{font-size:clamp(2rem,5vw,3.6rem);margin-bottom:20px}
+.panel .lead{font-size:1.12rem;opacity:.9;margin-bottom:26px;text-shadow:0 2px 16px rgba(0,0,0,.5)}
+.vals{display:grid;gap:12px;max-width:560px}
+.val{display:flex;gap:14px;align-items:flex-start;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14)}
+.val svg{width:24px;height:24px;color:var(--gold);flex-shrink:0;margin-top:2px}
+.val h3{font-size:1.05rem;margin-bottom:2px;font-family:var(--head)}
+.val p{font-size:.9rem;opacity:.82}
+.kpis{display:flex;gap:34px;flex-wrap:wrap;margin-top:30px}
+.kpi-num{font-family:var(--head);font-size:clamp(1.8rem,4vw,2.6rem);color:var(--gold);line-height:1}
+.kpi-lbl{font-size:.82rem;opacity:.82;text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+/* services panel grid */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:1000px;margin-top:10px}
+.svc{padding:24px 22px;border-radius:16px;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);transition:transform .3s,background .3s}
+.svc:hover{transform:translateY(-6px);background:rgba(255,255,255,.14)}
+.svc svg{width:32px;height:32px;color:var(--gold);margin-bottom:12px}
+.svc h3{font-size:1.08rem;margin-bottom:6px;font-family:var(--head);font-weight:600}
+.svc p{font-size:.86rem;opacity:.8}
+/* projects panel */
+.proj-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.proj{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:3/4;border:1px solid rgba(255,255,255,.16)}
+.proj img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.proj:hover img{transform:scale(1.08)}
+.proj::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,8,13,.92),transparent 55%)}
+.proj-body{position:absolute;left:0;bottom:0;z-index:2;padding:18px}
+.proj-cat{font-family:var(--head);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.proj-body h3{font-size:1.05rem;margin-top:5px;font-weight:600}
+/* contact panel */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,56px);align-items:start;max-width:1000px}
+.ci-row{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.ci-row .k{font-family:var(--head);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:4px}
+.ci-row .v{font-size:1.08rem;font-weight:600}
+.cf{display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,.08);backdrop-filter:blur(8px);padding:28px;border-radius:18px;border:1px solid rgba(255,255,255,.16)}
+.cf input,.cf textarea{padding:14px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.05);color:#fff;font-family:var(--body);font-size:1rem;width:100%}
+.cf input::placeholder,.cf textarea::placeholder{color:rgba(255,255,255,.5)}
+.cf input:focus,.cf textarea:focus{outline:none;border-color:var(--gold)}
+.cf .btn{align-self:flex-start}
+.form-msg{opacity:0;transform:translateY(6px);transition:.4s;font-weight:700;color:var(--gold)}
+.form-msg.show{opacity:1;transform:none}
+.foot-line{margin-top:36px;display:flex;align-items:center;gap:18px;opacity:.7;font-size:.86rem}
+.foot-line img{height:38px}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.revealed{opacity:1;transform:none}
+@media(max-width:980px){
+  .nav{position:fixed;inset:0 0 0 auto;width:80%;max-width:330px;flex-direction:column;align-items:flex-start;background:#0a0e15;padding:100px 34px;gap:10px;transform:translateX(110%);transition:.35s;z-index:110}
+  body.nav-open .nav{transform:none}
+  .burger{display:flex;position:relative;z-index:130}
+  body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  body.nav-open .burger span:nth-child(2){opacity:0}
+  body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .dots{display:none}
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .proj-strip{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .pbg{background-attachment:scroll}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}.svc-grid{grid-template-columns:1fr}.proj-strip{grid-template-columns:1fr 1fr}
+  .panel{min-height:100vh;padding:90px 0 70px}
+}
+</style>
+</head>
+<body>
+<a href="../index.html" class="back-gallery" data-tj="← Ба галерея" data-en="← Back to gallery">← Ба галерея</a>
+
+<header data-header>
+  <div class="hdr">
+    <a href="#home" class="logo"><img src="../assets/img/logo_gold.png" alt="РМК"></a>
+    <nav class="nav">
+      <a href="#about" data-tj="Дар бораи мо" data-en="About">Дар бораи мо</a>
+      <a href="#services" data-tj="Хидматҳо" data-en="Services">Хидматҳо</a>
+      <a href="#projects" data-tj="Лоиҳаҳо" data-en="Projects">Лоиҳаҳо</a>
+      <a href="#contact" data-tj="Тамос" data-en="Contact">Тамос</a>
+      <div class="lang"><button data-lang-btn="tj" class="is-active">TJ</button><span class="lang-sep">/</span><button data-lang-btn="en">EN</button></div>
+    </nav>
+    <button class="burger" data-burger aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="dots">
+  <a href="#home" data-dot="home" class="active"></a>
+  <a href="#about" data-dot="about"></a>
+  <a href="#services" data-dot="services"></a>
+  <a href="#projects" data-dot="projects"></a>
+  <a href="#contact" data-dot="contact"></a>
+</div>
+
+<div class="snap" id="snap">
+
+  <section id="home" class="panel hero">
+    <div class="pbg" style="background-image:url('../assets/img/hero_dark.png')"></div>
+    <div class="pov" style="background:linear-gradient(90deg,rgba(5,8,13,.85),rgba(5,8,13,.3) 70%),linear-gradient(0deg,rgba(5,8,13,.8),transparent 50%)"></div>
+    <div class="wrap">
+      <span class="eyebrow" data-tj="Рушди устувор · Тоҷикистон" data-en="Sustainable development · Tajikistan">Рушди устувор · Тоҷикистон</span>
+      <h1 data-tj="Рушди устувори манотиқи кӯҳистони Тоҷикистон" data-en="Sustainable development of Tajikistan's mountain regions">Рушди устувори манотиқи кӯҳистони Тоҷикистон</h1>
+      <p class="hero-sub" data-tj="Мо инфрасохтор, иқтисодиёт ва ҳаёти манотиқи кӯҳиро бо технологияҳои муосир ва эҳтиром ба табиат тағйир медиҳем." data-en="We transform infrastructure, economy and life in highland regions with modern technology and respect for nature.">Мо инфрасохтор, иқтисодиёт ва ҳаёти манотиқи кӯҳиро бо технологияҳои муосир ва эҳтиром ба табиат тағйир медиҳем.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-p" data-tj="Бо мо тамос гиред" data-en="Get in touch">Бо мо тамос гиред</a>
+        <a href="#projects" class="btn btn-g" data-tj="Лоиҳаҳои мо" data-en="Our projects">Лоиҳаҳои мо</a>
+      </div>
+    </div>
+    <div class="scrollhint"><span class="m"></span><span data-tj="Поён" data-en="Scroll">Поён</span></div>
+  </section>
+
+  <section id="about" class="panel">
+    <div class="pbg" style="background-image:url('../assets/img/photo_energy.png')"></div>
+    <div class="pov" style="background:linear-gradient(90deg,rgba(5,8,13,.9),rgba(5,8,13,.45) 75%)"></div>
+    <div class="wrap">
+      <div class="panel-content">
+        <span class="tag reveal" data-tj="Дар бораи мо" data-en="About us">Дар бораи мо</span>
+        <h2 class="reveal" data-tj="Ояндаи кӯҳистон — имрӯз сохта мешавад" data-en="Building the future of the highlands, today">Ояндаи кӯҳистон — имрӯз сохта мешавад</h2>
+        <p class="lead reveal" data-tj="«Рушди Манотиқи Кӯҳистон» — созмонест, ки ба рушди ҳамаҷонибаи минтақаҳои кӯҳии Тоҷикистон нигаронида шудааст. Мо лоиҳаҳои инфрасохторӣ, иқтисодӣ ва иҷтимоиро таҳия ва амалӣ менамоем." data-en="Mountain Regions Development (RMK) is dedicated to the comprehensive development of Tajikistan's highland areas. We design and implement infrastructure, economic and social projects.">«Рушди Манотиқи Кӯҳистон» — созмонест, ки ба рушди ҳамаҷонибаи минтақаҳои кӯҳии Тоҷикистон нигаронида шудааст. Мо лоиҳаҳои инфрасохторӣ, иқтисодӣ ва иҷтимоиро таҳия ва амалӣ менамоем.</p>
+        <div class="vals">
+          <div class="val reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg><div><h3 data-tj="Устуворӣ" data-en="Sustainability">Устуворӣ</h3><p data-tj="Рушд бо эҳтиром ба муҳити зист" data-en="Development with respect for nature">Рушд бо эҳтиром ба муҳити зист</p></div></div>
+          <div class="val reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 14.06 5 19m0-14 5 5m4-5-4.94 4.94M19 19l-4.94-4.94M12 2v3m0 14v3M2 12h3m14 0h3"/></svg><div><h3 data-tj="Навоварӣ" data-en="Innovation">Навоварӣ</h3><p data-tj="Технологияҳои муосир дар кӯҳистон" data-en="Modern technology in the highlands">Технологияҳои муосир дар кӯҳистон</p></div></div>
+          <div class="val reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><div><h3 data-tj="Ҷамъият" data-en="Community">Ҷамъият</h3><p data-tj="Беҳбудии аҳолии маҳаллӣ" data-en="Wellbeing of local people">Беҳбудии аҳолии маҳаллӣ</p></div></div>
+        </div>
+        <div class="kpis reveal">
+          <div><div class="kpi-num">50+</div><div class="kpi-lbl" data-tj="Лоиҳа" data-en="Projects">Лоиҳа</div></div>
+          <div><div class="kpi-num">20+</div><div class="kpi-lbl" data-tj="Минтақа" data-en="Regions">Минтақа</div></div>
+          <div><div class="kpi-num">10+</div><div class="kpi-lbl" data-tj="Сол" data-en="Years">Сол</div></div>
+          <div><div class="kpi-num">100K+</div><div class="kpi-lbl" data-tj="Сокинон" data-en="Residents">Сокинон</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="panel">
+    <div class="pbg" style="background-image:url('../assets/img/hero_mountains.png')"></div>
+    <div class="pov" style="background:linear-gradient(180deg,rgba(5,8,13,.82),rgba(5,8,13,.7))"></div>
+    <div class="wrap">
+      <span class="tag reveal" data-tj="Хидматҳо" data-en="Services">Хидматҳо</span>
+      <h2 class="reveal" style="margin-bottom:26px" data-tj="Самтҳои асосии фаъолият" data-en="Our key areas of work">Самтҳои асосии фаъолият</h2>
+      <div class="svc-grid">
+        <article class="svc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 8 5m12 14L16 5M12 5v2m0 4v2m0 4v2"/></svg><h3 data-tj="Рушди инфрасохтор" data-en="Infrastructure">Рушди инфрасохтор</h3><p data-tj="Роҳҳо, пулҳо, шабакаҳо" data-en="Roads, bridges, networks">Роҳҳо, пулҳо, шабакаҳо</p></article>
+        <article class="svc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg><h3 data-tj="Энергетикаи сабз" data-en="Green energy">Энергетикаи сабз</h3><p data-tj="Гидро ва офтобӣ" data-en="Hydro and solar power">Гидро ва офтобӣ</p></article>
+        <article class="svc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3Z"/></svg><h3 data-tj="Туризми кӯҳӣ" data-en="Mountain tourism">Туризми кӯҳӣ</h3><p data-tj="Экотуризм ва меҳмонхонаҳо" data-en="Ecotourism and resorts">Экотуризм ва меҳмонхонаҳо</p></article>
+        <article class="svc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10M12 20V8m0 0a5 5 0 0 0-5-5H5v2a5 5 0 0 0 5 5h2Zm0 4a5 5 0 0 1 5-5h2v1a5 5 0 0 1-5 5h-2Z"/></svg><h3 data-tj="Кишоварзӣ" data-en="Agriculture">Кишоварзӣ</h3><p data-tj="Боғдорӣ ва чорводорӣ" data-en="Horticulture and livestock">Боғдорӣ ва чорводорӣ</p></article>
+        <article class="svc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg><h3 data-tj="Иҷтимоиёт" data-en="Social projects">Иҷтимоиёт</h3><p data-tj="Мактабҳо, беморхонаҳо" data-en="Schools, clinics">Мактабҳо, беморхонаҳо</p></article>
+        <article class="svc reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></svg><h3 data-tj="Ҳифзи табиат" data-en="Nature protection">Ҳифзи табиат</h3><p data-tj="Экология ва обу ҳаво" data-en="Ecology and climate">Экология ва обу ҳаво</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="panel">
+    <div class="pbg" style="background-image:url('../assets/img/photo_tourism.png')"></div>
+    <div class="pov" style="background:linear-gradient(180deg,rgba(5,8,13,.85),rgba(5,8,13,.78))"></div>
+    <div class="wrap">
+      <span class="tag reveal" data-tj="Лоиҳаҳо" data-en="Projects">Лоиҳаҳо</span>
+      <h2 class="reveal" style="margin-bottom:22px" data-tj="Лоиҳаҳои интихобшуда" data-en="Selected projects">Лоиҳаҳои интихобшуда</h2>
+      <div class="proj-strip">
+        <article class="proj reveal"><img src="../assets/img/photo_road.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Инфрасохтор" data-en="Infrastructure">Инфрасохтор</span> · 2024</span><h3 data-tj="Роҳи кӯҳии Помир" data-en="Pamir mountain road">Роҳи кӯҳии Помир</h3></div></article>
+        <article class="proj reveal"><img src="../assets/img/photo_energy.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Энергетика" data-en="Energy">Энергетика</span> · 2023</span><h3 data-tj="Стансияи обии Рашт" data-en="Rasht hydro station">Стансияи обии Рашт</h3></div></article>
+        <article class="proj reveal"><img src="../assets/img/photo_tourism.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Туризм" data-en="Tourism">Туризм</span> · 2025</span><h3 data-tj="Маркази экотуризм" data-en="Ecotourism center">Маркази экотуризм</h3></div></article>
+        <article class="proj reveal"><img src="../assets/img/photo_people.png" alt="" loading="lazy"><div class="proj-body"><span class="proj-cat"><span data-tj="Иҷтимоӣ" data-en="Social">Иҷтимоӣ</span> · 2024</span><h3 data-tj="Мактаби кӯҳистон" data-en="Highland school">Мактаби кӯҳистон</h3></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="panel">
+    <div class="pbg" style="background-image:url('../assets/img/hero_development.png')"></div>
+    <div class="pov" style="background:linear-gradient(90deg,rgba(5,8,13,.92),rgba(5,8,13,.6))"></div>
+    <div class="wrap">
+      <span class="tag reveal" data-tj="Тамос" data-en="Contact">Тамос</span>
+      <h2 class="reveal" style="margin-bottom:26px" data-tj="Биёед якҷоя кор кунем" data-en="Let's work together">Биёед якҷоя кор кунем</h2>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="ci-row"><div class="k">Email</div><div class="v"><a href="mailto:info@rmk.tj">info@rmk.tj</a></div></div>
+          <div class="ci-row"><div class="k" data-tj="Телефон" data-en="Phone">Телефон</div><div class="v"><a href="tel:+99237000000">+992 (37) 000-00-00</a></div></div>
+          <div class="ci-row"><div class="k" data-tj="Суроға" data-en="Address">Суроға</div><div class="v" data-tj="ш. Душанбе, Ҷумҳурии Тоҷикистон" data-en="Dushanbe, Republic of Tajikistan">ш. Душанбе, Ҷумҳурии Тоҷикистон</div></div>
+          <div class="foot-line"><img src="../assets/img/logo_gold.png" alt="РМК"><span data-tj="© 2026 Рушди Манотиқи Кӯҳистон" data-en="© 2026 Mountain Regions Development">© 2026 Рушди Манотиқи Кӯҳистон</span></div>
+        </div>
+        <form class="cf reveal" data-form>
+          <input type="text" required data-ph-tj="Ном" data-ph-en="Name" placeholder="Ном">
+          <input type="email" required data-ph-tj="Email" data-ph-en="Email" placeholder="Email">
+          <textarea rows="3" required data-ph-tj="Паём" data-ph-en="Message" placeholder="Паём"></textarea>
+          <button type="submit" class="btn btn-p" data-tj="Фиристодан" data-en="Send">Фиристодан</button>
+          <p class="form-msg" data-form-msg></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="../assets/content.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+RMK_init();
+// scroll-snap container: header shrink + reveal + dot nav based on inner scroller
+(function(){
+  var snap=document.getElementById('snap');
+  var hdr=document.querySelector('[data-header]');
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  var dots=[].slice.call(document.querySelectorAll('[data-dot]'));
+  // re-bind anchors to scroll within snap container
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      var id=a.getAttribute('href');
+      if(id.length>1){var t=document.querySelector(id);if(t){ev.preventDefault();snap.scrollTo({top:t.offsetTop,behavior:'smooth'});}}
+      document.body.classList.remove('nav-open');
+    });
+  });
+  // reveal via IntersectionObserver rooted at snap
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('revealed');io.unobserve(e.target);}});},{root:snap,threshold:.15});
+  document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(Math.min(i%5,5)*70)+'ms';io.observe(el);});
+  // dot active + header
+  snap.addEventListener('scroll',function(){
+    hdr.classList.toggle('scrolled',snap.scrollTop>40);
+    var sc=snap.scrollTop+snap.clientHeight/2;
+    panels.forEach(function(p,i){
+      if(sc>=p.offsetTop&&sc<p.offsetTop+p.offsetHeight){dots.forEach(function(d){d.classList.remove('active');});if(dots[i])dots[i].classList.add('active');}
+    });
+  },{passive:true});
+})();
+</script>
+<script data-pplx-inline-edit>
+(function () {
+  if (window === window.top) return;
+
+  const allowedParentOrigins = ["https://www.perplexity.ai","https://perplexity.ai","https://testing.perplexity.ai","https://staging.perplexity.ai","https://*.preview.i.perplexity.ai","http://localhost:3000","http://127.0.0.1:3000","http://localhost:5173","http://127.0.0.1:5173"];
+  const MAX_FONT_BYTES = 500 * 1024;
+  const MAX_TOTAL_FONT_BYTES = 2 * 1024 * 1024;
+  let scrollForwarding = false;
+  let scrollRaf = 0;
+  let trustedTopOrigin = null;
+
+  // Allow entries like "https://*.preview.i.perplexity.ai" — the wildcard
+  // matches a single DNS label (no dots), so "https://*.foo" cannot stretch
+  // across multiple labels.
+  function matchesAllowedOrigin(origin) {
+    if (!origin) return false;
+    for (const entry of allowedParentOrigins) {
+      if (!entry.includes("*")) {
+        if (entry === origin) return true;
+        continue;
+      }
+      const pattern = new RegExp(
+        "^" +
+          entry.replace(/[.+?^${}()|[\]\\]/g, "\\$&").replace(/\*/g, "[^.]+") +
+          "$",
+      );
+      if (pattern.test(origin)) return true;
+    }
+    return false;
+  }
+
+  // Trust decision: when the sender is same-origin-visible (event.origin is a
+  // real origin like https://www.perplexity.ai) we trust event.origin directly.
+  // When event.origin is "null" (opaque broker srcdoc), we fall back to the
+  // broker's stamped `parentOrigin` to identify the top window. The fallback
+  // is claim-only — we rely on the browser's native `targetOrigin` enforcement
+  // on the response path (see postToTrustedTop) to ensure replies can't be
+  // delivered to anyone but the actual top window of that claimed origin.
+  function getTrustedParentOrigin(event) {
+    const forwardedParentOrigin =
+      typeof event.data.parentOrigin === "string" ? event.data.parentOrigin : null;
+    const parentOrigin = event.origin === "null" ? forwardedParentOrigin : event.origin;
+    return matchesAllowedOrigin(parentOrigin) ? parentOrigin : null;
+  }
+
+  // All responses go to window.top with targetOrigin = the allowlisted origin.
+  // An attacker that iframes us inside their own null-origin broker can claim
+  // any parentOrigin they like, but the browser will drop the reply whenever
+  // the real top's origin doesn't match — so the screenshot never leaves.
+  function postToTrustedTop(message) {
+    if (!trustedTopOrigin) return;
+    try {
+      window.top.postMessage(message, trustedTopOrigin);
+    } catch (_error) {}
+  }
+
+  function inlineAll(original, clone) {
+    if (original.nodeType !== 1 || clone.nodeType !== 1) return;
+
+    try {
+      const computedStyle = getComputedStyle(original);
+      // cssText on a computed style is the serialized declaration in modern
+      // Chromium/Safari — a single read beats enumerating ~400 longhand
+      // properties. Firefox returns "" here, so we fall back on empty.
+      const serialized = computedStyle.cssText;
+      if (serialized) {
+        clone.style.cssText = serialized;
+      } else {
+        const parts = new Array(computedStyle.length);
+        for (let index = 0; index < computedStyle.length; index += 1) {
+          const property = computedStyle[index];
+          parts[index] = `${property}:${computedStyle.getPropertyValue(property)};`;
+        }
+        clone.style.cssText = parts.join("");
+      }
+    } catch (_error) {}
+
+    const originalChildren = original.children;
+    const clonedChildren = clone.children;
+    for (
+      let index = 0;
+      index < originalChildren.length && index < clonedChildren.length;
+      index += 1
+    ) {
+      inlineAll(originalChildren[index], clonedChildren[index]);
+    }
+  }
+
+  function extractFontUrl(srcValue) {
+    const matches = [
+      ...srcValue.matchAll(
+        /url\(["']?([^"')]+)["']?\)(?:\s*format\(["']?([^"')]+)["']?\))?/gi,
+      ),
+    ];
+    if (matches.length === 0) return null;
+    const woff2 = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff2"));
+    if (woff2) return woff2[1];
+    const woff = matches.find((m) => m[2] && m[2].toLowerCase().includes("woff"));
+    if (woff) return woff[1];
+    return matches[0][1];
+  }
+
+  // Cache resolved font URL -> data URI across captures. Fonts on a page
+  // essentially never change, and a batch run emits multiple captures back to
+  // back — without this we'd refetch + re-base64 every time.
+  const fontDataUriCache = new Map();
+  const SRC_DECLARATION_RE = /src\s*:\s*[^;}]+/i;
+
+  async function fetchAsDataUri(url) {
+    if (fontDataUriCache.has(url)) return fontDataUriCache.get(url);
+    let dataUri = null;
+    try {
+      const response = await fetch(url, { mode: "cors", credentials: "omit" });
+      if (response.ok) {
+        const blob = await response.blob();
+        if (blob.size <= MAX_FONT_BYTES) {
+          dataUri = await new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(typeof reader.result === "string" ? reader.result : null);
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+    } catch (_error) {
+      dataUri = null;
+    }
+    fontDataUriCache.set(url, dataUri);
+    return dataUri;
+  }
+
+  function collectFontFaceRuleTexts() {
+    const rules = [];
+    for (const sheet of document.styleSheets) {
+      let cssRules;
+      try {
+        cssRules = sheet.cssRules;
+      } catch (_error) {
+        continue;
+      }
+      if (!cssRules) continue;
+      for (const rule of cssRules) {
+        const cssText = rule.cssText || "";
+        if (cssText.startsWith("@font-face")) rules.push(cssText);
+      }
+    }
+    return rules;
+  }
+
+  async function buildInlinedFontCss() {
+    const ruleTexts = collectFontFaceRuleTexts();
+    if (ruleTexts.length === 0) return null;
+
+    const resolved = ruleTexts.map((cssText) => {
+      if (!SRC_DECLARATION_RE.test(cssText)) return null;
+      const srcMatch = cssText.match(/src\s*:\s*([^;}]+)[;}]/i);
+      if (!srcMatch) return null;
+      const url = extractFontUrl(srcMatch[1]);
+      if (!url) return null;
+      try {
+        return { cssText, url: new URL(url, document.baseURI).href };
+      } catch (_error) {
+        return null;
+      }
+    });
+
+    const dataUris = await Promise.all(
+      resolved.map((entry) => (entry ? fetchAsDataUri(entry.url) : Promise.resolve(null))),
+    );
+
+    const inlined = [];
+    let totalBytes = 0;
+    for (let index = 0; index < resolved.length; index += 1) {
+      const entry = resolved[index];
+      const dataUri = dataUris[index];
+      if (!entry || !dataUri) continue;
+      const approxBytes = dataUri.length * 0.75;
+      if (totalBytes + approxBytes > MAX_TOTAL_FONT_BYTES) break;
+      totalBytes += approxBytes;
+      inlined.push(entry.cssText.replace(SRC_DECLARATION_RE, `src: url("${dataUri}")`));
+    }
+    return inlined.length > 0 ? inlined.join("\n") : null;
+  }
+
+  function stripExternal(clone) {
+    const images = clone.querySelectorAll("img");
+    for (let index = 0; index < images.length; index += 1) {
+      const src = images[index].getAttribute("src");
+      if (src && !src.startsWith("data:")) images[index].removeAttribute("src");
+    }
+
+    const elements = clone.querySelectorAll("*");
+    for (let index = 0; index < elements.length; index += 1) {
+      const style = elements[index].style.cssText;
+      if (style && style.includes("url(")) {
+        elements[index].style.cssText = style.replace(
+          /url\(["']?(?!data:)[^)"']*["']?\)/gi,
+          "none",
+        );
+      }
+    }
+  }
+
+  function emitScroll() {
+    scrollRaf = 0;
+    if (!scrollForwarding) return;
+    postToTrustedTop({
+      type: "INLINE_EDIT_SCROLL",
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
+    });
+  }
+
+  window.addEventListener(
+    "scroll",
+    function () {
+      if (!scrollForwarding || scrollRaf) return;
+      scrollRaf = requestAnimationFrame(emitScroll);
+    },
+    { passive: true, capture: true },
+  );
+
+  async function handleCaptureRequest(event) {
+    const requestId = event.data.requestId;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    function postResult(dataUrl) {
+      postToTrustedTop({
+        type: "INLINE_EDIT_SCREENSHOT_RESULT",
+        requestId,
+        dataUrl,
+        scrollX,
+        scrollY,
+      });
+    }
+
+    try {
+      // Wait for any pending web fonts to resolve so both inline metrics and
+      // the @font-face inlining below see the same loaded faces.
+      if (document.fonts && document.fonts.ready) {
+        try {
+          await document.fonts.ready;
+        } catch (_error) {}
+      }
+
+      const clone = document.documentElement.cloneNode(true);
+      inlineAll(document.documentElement, clone);
+
+      const removedNodes = clone.querySelectorAll("script,link[rel=\"stylesheet\"],style");
+      for (let index = 0; index < removedNodes.length; index += 1) {
+        removedNodes[index].remove();
+      }
+
+      stripExternal(clone);
+
+      // Re-embed web fonts as data-URI @font-face rules so the SVG rasterizer
+      // can resolve them — external font URLs aren't fetched during
+      // foreignObject rendering, which would otherwise force a fallback face
+      // and change text metrics.
+      const inlinedFontCss = await buildInlinedFontCss();
+      if (inlinedFontCss) {
+        const styleEl = document.createElement("style");
+        styleEl.textContent = inlinedFontCss;
+        const head = clone.querySelector("head");
+        if (head) head.appendChild(styleEl);
+        else clone.insertBefore(styleEl, clone.firstChild);
+      }
+
+      const html = new XMLSerializer().serializeToString(clone);
+      const svg =
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">` +
+        '<foreignObject width="100%" height="100%">' +
+        `<div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;overflow:hidden">` +
+        `<div style="position:relative;left:-${scrollX}px;top:-${scrollY}px">` +
+        html +
+        "</div></div></foreignObject></svg>";
+      const svgUrl = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+      const image = new Image();
+      image.onload = function () {
+        const canvas = document.createElement("canvas");
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d").drawImage(image, 0, 0);
+        postResult(canvas.toDataURL("image/png"));
+      };
+      image.onerror = function () {
+        postResult(null);
+      };
+      image.src = svgUrl;
+    } catch (_error) {
+      postResult(null);
+    }
+  }
+
+  window.addEventListener("message", function (event) {
+    if (!event.data) return;
+    // Only accept messages from the direct parent frame. Blocks sibling /
+    // unrelated-window postMessage senders that could otherwise reach us.
+    if (event.source !== window.parent) return;
+
+    const trustedParentOrigin = getTrustedParentOrigin(event);
+    if (!trustedParentOrigin) return;
+    trustedTopOrigin = trustedParentOrigin;
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_START") {
+      scrollForwarding = true;
+      emitScroll();
+      return;
+    }
+
+    if (event.data.type === "INLINE_EDIT_SCROLL_STOP") {
+      scrollForwarding = false;
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
+      scrollRaf = 0;
+      return;
+    }
+
+    if (event.data.type !== "INLINE_EDIT_CAPTURE_REQUEST") return;
+
+    handleCaptureRequest(event);
+  });
+})();
+
+
+</script></body>
+</html>
