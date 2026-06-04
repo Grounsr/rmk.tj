@@ -74,3 +74,9 @@
 2. «Стансияи обии Рашт» → photo_energy.png
 3. «Маркази экотуризм» → photo_tourism.png
 4. «Мактаби кӯҳистон» → photo_people.png
+
+## ПРЕМИУМ-ИЗОБРАЖЕНИЯ (для luxury-шаблонов 13-18)
+- lux_aerial.png — аэро-снимок хребта в облаках на золотом закате (горизонт.) — luxury hero
+- lux_arch.png — премиум-архитектура: стеклянный дом в горах на закате с тёплым светом (горизонт.) — luxury/архитектурный hero
+- lux_emerald.png — изумрудная долина с бирюзовой рекой (горизонт.) — природный люкс
+Также доступны все прежние: hero_mountains, hero_dark, hero_light, hero_development, photo_road, photo_energy, photo_tourism, photo_agro, photo_people, photo_neon, logo_silver, logo_gold, emblem_silver, emblem_gold.
