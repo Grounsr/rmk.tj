@@ -1,0 +1,261 @@
+{
+ "brand": {
+  "tj": "Рушди Манотиқи Кӯҳистон",
+  "en": "Mountain Regions Development",
+  "abbr": "РМК / RMK"
+ },
+ "nav": [
+  {
+   "id": "home",
+   "tj": "Асосӣ",
+   "en": "Home"
+  },
+  {
+   "id": "about",
+   "tj": "Дар бораи мо",
+   "en": "About"
+  },
+  {
+   "id": "services",
+   "tj": "Хидматҳо",
+   "en": "Services"
+  },
+  {
+   "id": "projects",
+   "tj": "Лоиҳаҳо",
+   "en": "Projects"
+  },
+  {
+   "id": "contact",
+   "tj": "Тамос",
+   "en": "Contact"
+  }
+ ],
+ "hero": {
+  "eyebrow": {
+   "tj": "Рушди устувор · Тоҷикистон",
+   "en": "Sustainable development · Tajikistan"
+  },
+  "title": {
+   "tj": "Рушди устувори манотиқи кӯҳистони Тоҷикистон",
+   "en": "Sustainable development of Tajikistan's mountain regions"
+  },
+  "subtitle": {
+   "tj": "Мо инфрасохтор, иқтисодиёт ва ҳаёти манотиқи кӯҳиро бо технологияҳои муосир ва эҳтиром ба табиат тағйир медиҳем.",
+   "en": "We transform infrastructure, economy and life in highland regions with modern technology and respect for nature."
+  },
+  "cta1": {
+   "tj": "Бо мо тамос гиред",
+   "en": "Get in touch"
+  },
+  "cta2": {
+   "tj": "Лоиҳаҳои мо",
+   "en": "Our projects"
+  }
+ },
+ "about": {
+  "tag": {
+   "tj": "Дар бораи мо",
+   "en": "About us"
+  },
+  "title": {
+   "tj": "Ояндаи кӯҳистон — имрӯз сохта мешавад",
+   "en": "Building the future of the highlands, today"
+  },
+  "body": {
+   "tj": "«Рушди Манотиқи Кӯҳистон» — созмонест, ки ба рушди ҳамаҷонибаи минтақаҳои кӯҳии Тоҷикистон нигаронида шудааст. Мо лоиҳаҳои инфрасохторӣ, иқтисодӣ ва иҷтимоиро таҳия ва амалӣ менамоем, то сатҳи зиндагии аҳолии кӯҳистон беҳтар гардад.",
+   "en": "Mountain Regions Development (RMK) is dedicated to the comprehensive development of Tajikistan's highland areas. We design and implement infrastructure, economic and social projects to improve the quality of life in mountain communities."
+  },
+  "values": [
+   {
+    "tj": "Устуворӣ",
+    "en": "Sustainability",
+    "dtj": "Рушд бо эҳтиром ба муҳити зист",
+    "den": "Development with respect for the environment",
+    "icon": "leaf"
+   },
+   {
+    "tj": "Навоварӣ",
+    "en": "Innovation",
+    "dtj": "Технологияҳои муосир дар кӯҳистон",
+    "den": "Modern technology in the highlands",
+    "icon": "spark"
+   },
+   {
+    "tj": "Ҷамъият",
+    "en": "Community",
+    "dtj": "Беҳбудии аҳолии маҳаллӣ",
+    "den": "Wellbeing of local people",
+    "icon": "people"
+   }
+  ],
+  "kpi": [
+   {
+    "num": "50+",
+    "tj": "Лоиҳа",
+    "en": "Projects"
+   },
+   {
+    "num": "20+",
+    "tj": "Минтақа",
+    "en": "Regions"
+   },
+   {
+    "num": "10+",
+    "tj": "Сол таҷриба",
+    "en": "Years experience"
+   },
+   {
+    "num": "100K+",
+    "tj": "Сокинон",
+    "en": "Residents impacted"
+   }
+  ]
+ },
+ "services": {
+  "tag": {
+   "tj": "Хидматҳо",
+   "en": "Services"
+  },
+  "title": {
+   "tj": "Самтҳои асосии фаъолият",
+   "en": "Our key areas of work"
+  },
+  "items": [
+   {
+    "tj": "Рушди инфрасохтор",
+    "en": "Infrastructure development",
+    "dtj": "Роҳҳо, пулҳо, шабакаҳо",
+    "den": "Roads, bridges, networks",
+    "icon": "road"
+   },
+   {
+    "tj": "Энергетикаи сабз",
+    "en": "Green energy",
+    "dtj": "Гидро ва офтобӣ",
+    "den": "Hydro and solar power",
+    "icon": "energy"
+   },
+   {
+    "tj": "Туризми кӯҳӣ",
+    "en": "Mountain tourism",
+    "dtj": "Экотуризм ва меҳмонхонаҳо",
+    "den": "Ecotourism and resorts",
+    "icon": "mountain"
+   },
+   {
+    "tj": "Кишоварзӣ",
+    "en": "Agriculture",
+    "dtj": "Боғдорӣ ва чорводорӣ",
+    "den": "Horticulture and livestock",
+    "icon": "plant"
+   },
+   {
+    "tj": "Иҷтимоиёт",
+    "en": "Social projects",
+    "dtj": "Мактабҳо, беморхонаҳо",
+    "den": "Schools, clinics",
+    "icon": "social"
+   },
+   {
+    "tj": "Ҳифзи табиат",
+    "en": "Nature protection",
+    "dtj": "Экология ва обу ҳаво",
+    "den": "Ecology and climate",
+    "icon": "shield"
+   }
+  ]
+ },
+ "projects": {
+  "tag": {
+   "tj": "Лоиҳаҳо",
+   "en": "Projects"
+  },
+  "title": {
+   "tj": "Лоиҳаҳои интихобшуда",
+   "en": "Selected projects"
+  },
+  "items": [
+   {
+    "tj": "Роҳи кӯҳии Помир",
+    "en": "Pamir mountain road",
+    "ctj": "Инфрасохтор",
+    "cen": "Infrastructure",
+    "year": "2024",
+    "img": "hero_mountains.png"
+   },
+   {
+    "tj": "Стансияи обии Рашт",
+    "en": "Rasht hydro station",
+    "ctj": "Энергетика",
+    "cen": "Energy",
+    "year": "2023",
+    "img": "hero_development.png"
+   },
+   {
+    "tj": "Маркази экотуризм",
+    "en": "Ecotourism center",
+    "ctj": "Туризм",
+    "cen": "Tourism",
+    "year": "2025",
+    "img": "hero_light.png"
+   },
+   {
+    "tj": "Мактаби кӯҳистон",
+    "en": "Highland school",
+    "ctj": "Иҷтимоӣ",
+    "cen": "Social",
+    "year": "2024",
+    "img": "hero_dark.png"
+   }
+  ]
+ },
+ "contact": {
+  "tag": {
+   "tj": "Тамос",
+   "en": "Contact"
+  },
+  "title": {
+   "tj": "Биёед якҷоя кор кунем",
+   "en": "Let's work together"
+  },
+  "addr": {
+   "tj": "ш. Душанбе, Ҷумҳурии Тоҷикистон",
+   "en": "Dushanbe, Republic of Tajikistan"
+  },
+  "email": "info@rmk.tj",
+  "phone": "+992 (37) 000-00-00",
+  "form": {
+   "name": {
+    "tj": "Ном",
+    "en": "Name"
+   },
+   "email": {
+    "tj": "Email",
+    "en": "Email"
+   },
+   "msg": {
+    "tj": "Паём",
+    "en": "Message"
+   },
+   "send": {
+    "tj": "Фиристодан",
+    "en": "Send"
+   },
+   "thanks": {
+    "tj": "Ташаккур! Паёми шумо қабул шуд.",
+    "en": "Thank you! Your message has been received."
+   }
+  }
+ },
+ "footer": {
+  "tj": "© 2026 Рушди Манотиқи Кӯҳистон",
+  "en": "© 2026 Mountain Regions Development"
+ },
+ "gallery": {
+  "back": {
+   "tj": "← Ба галерея",
+   "en": "← Back to gallery"
+  }
+ }
+}
